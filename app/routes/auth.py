@@ -65,7 +65,7 @@ def student_login():
         else:
             session['student'] = student.id
             return redirect(url_for('course.student_index'))
-    return render_template('views/auth/student_login.html', title='Student Register', form=form)
+    return render_template('views/auth/student_login.html', title='Student Login', form=form)
 
 @auth.route('/student/register', methods=['GET', 'POST'])
 def student_register():
