@@ -1,0 +1,28 @@
+{% extends "assets/main_base.html" %}
+
+{% block content %}
+<main role="main" class="container">
+    <h1 class="mt-5">Parent Info Page</h1>
+    <p class="lead">
+        <b>Student:</b> {{ student.name }} <br>
+        <b>Grade Lavel:</b> {{ student.grade_level }}
+        <hr>
+    </p>
+    <p>
+        <b>Courses:</b><br>
+        {% for course in student.courses %}
+                &emsp;<b>Name:</b> {{ course.name }} <br>
+                &emsp;<b>Teacher:</b> {{ course.teacher.name }}<br>
+                &emsp;<b>Phone:</b> {{ course.teacher.phone }}
+                {% if course.exams %}
+                    <br>
+                    &emsp;<b>Exams:</b>
+                    {% for exam in course.exams %}
+                        <br>&emsp;&emsp;&emsp;{{ exam.date }}: {{ exam.name }}
+                    {% endfor %}
+                {% endif %}
+                <hr>
+        {% endfor %}
+    </p>
+</main>
+{% endblock %}

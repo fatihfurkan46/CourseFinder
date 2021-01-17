@@ -1,0 +1,55 @@
+{% extends "assets/student_base.html" %}
+
+{% block content %}
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">{{ title }}</h1>
+        </div>
+    </div>
+    {{ alert() }}
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Course Info
+                </div>
+                <div class="panel-body">
+                    Course Name: <label>{{ course.name }}</label><br>
+                    Course Grade Lavel: <label>{{ course.grade_level }}</label><br>
+                    Course Price: <label>₺ {{ course.price }}</label><br>
+                    Course Teacher: <label>{{ course.teacher.name }}</label><br>
+                    Course Teacher Phone: <label>{{ course.teacher.phone }}</label><br>
+                    Course Teacher E-Mail: <label>{{ course.teacher.email }}</label><br>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Course Exams
+                </div>
+                <div class="panel-body">
+                    {% for exam in exams %}
+                        {{ exam.name }} - {{ exam.date }} <br>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Join Course
+                </div>
+                <div class="panel-body">
+                    {% if course in student.courses %}
+                        <a href="{{ url_for('course.student_left', id=course.id) }}">Left This Course</a>
+                    {% else %}
+                        <a href="{{ url_for('course.student_join', id=course.id) }}">Join This Course</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

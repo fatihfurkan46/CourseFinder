@@ -1,0 +1,20 @@
+{% extends "assets/main_base.html" %}
+
+{% block content %}
+<main role="main" class="container">
+    <h1 class="mt-5">Parent Info Page</h1>
+    <p class="lead">Enter your parent code (T.C. No) and student email.</p>
+    <form action="{{ url_for('main.info') }}" method="GET">
+        <div class="form-group">
+            <label for="parent_code">Parent Code (T.C. No)</label>
+            <input type="text" class="form-control" id="parent_code" placeholder="Enter Parent Code" name="parent_code">
+            <small id="parent_code" class="form-text text-muted">Enter Your Parent Code</small>
+        </div>
+        <div class="form-group">
+            <label for="student_email">Student Email</label>
+            <input type="text" class="form-control" id="student_email" placeholder="Enter Student Email" name="email">
+        </div>
+        <button type="submit" class="btn btn-primary">Show Info</button>
+    </form>
+</main>
+{% endblock %}
