@@ -1,1 +1,1 @@
-web: gunicorn wsgi:app
+web: python setup_db.py; gunicorn wsgi:app
