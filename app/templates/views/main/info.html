@@ -13,7 +13,8 @@
         {% for course in student.courses %}
                 &emsp;<b>Name:</b> {{ course.name }} <br>
                 &emsp;<b>Teacher:</b> {{ course.teacher.name }}<br>
-                &emsp;<b>Phone:</b> {{ course.teacher.phone }}
+                &emsp;<b>Phone:</b> {{ course.teacher.phone }}<br>
+                &emsp;<b>E-mail:</b> {{ course.teacher.email }}
                 {% if course.exams %}
                     <br>
                     &emsp;<b>Exams:</b>
